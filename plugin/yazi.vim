@@ -11,5 +11,8 @@ function! OpenYazi()
   " Use :terminal for Neovim or Vim 8+
   " Adjust the command according to how yazi is executed in your terminal
   execute 'terminal yazi'
+  startinsert
 endfunction
+
+autocmd TermClose * if !v:event.status | execute 'bd! ' . expand('<abuf>') | endif
 
